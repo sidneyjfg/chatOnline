@@ -1,5 +1,36 @@
 from django.shortcuts import render
 #Aqui fica as requisições vindas do front isto é, qualquer interação  que o usuário faz no site
+from .models import Message, Room
+from django.views.generic.detail import DetailView  
+import json
 
-def index(request):
-    return render(request, 'home.html',{})
+def home(request):
+    rooms = Room.objects.all().order_by('-created_at')
+    return render(request, 'chat/home.html',{
+        'rooms': rooms,    
+    }) #listando somente as salas
+
+class RoomDetailView(DetailView):
+    model = Room
+    template_name = 'chat/list-messages.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+def send_message(request, pk):
+    data = json.loads(request.body)
+    room = Room.objects.get(id=pk)
+    new_message = Message.objects.create(user = request.user, text=data['message'])
+    room.messages.add(new_message)
+    return render(request, 'chat/message.html', {
+        'm': new_message
+    })
+
+    
+def create_room(request):
+    data = json.loads(request.body)
+    room = Room.objects.create(user=request.user, title=data['title'])
+    return render(request, 'chat/room.html', {
+        'r': room
+    })

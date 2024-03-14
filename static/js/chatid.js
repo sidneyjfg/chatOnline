@@ -1,5 +1,6 @@
 const $chatMessages = Qs(".messages");
 
+
 const setRoomActive = (room_id) => {
   QsAll(".list-rooms li").forEach((el) => el.classList.remove("active"));
   Qs(`#room-${room_id}`).classList.add("active");

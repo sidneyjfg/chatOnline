@@ -57,7 +57,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
         BASE_DIR / 'templates', #necessário informar diretório dos templates (html's)
-        BASE_DIR / 'templates/chat'#BASE_DIR diretório base no caso chatonline
+        BASE_DIR / 'templates/chat/'#BASE_DIR diretório base no caso chatonline
 
         ],
         'APP_DIRS': True,
@@ -121,7 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

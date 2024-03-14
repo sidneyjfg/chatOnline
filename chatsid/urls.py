@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path("chatid/", include("apps.chatid.urls")),
+    path("", include("apps.chatid.urls")), #chamando  as rotas do app chatid (urls)
     path('admin/', admin.site.urls),
 ]
