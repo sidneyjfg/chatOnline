@@ -31,16 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'chatid.apps.ChatidConfig',
-
-
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.chatid.apps.ChatidConfig',
 ]
 
 MIDDLEWARE = [
