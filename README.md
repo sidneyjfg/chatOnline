@@ -52,6 +52,10 @@ Execute as migrações do Django:
 python manage.py migrate
 ```
 
+Além disso, você precisará criar um superusuário para acessar o painel de administração do Django e gerenciar os usuários do sistema. Para fazer isso, após executar as migrações do Django, execute o seguinte comando:
+```
+python manage.py createsuperuser
+```
 Inicie o servidor de desenvolvimento:
 
 
