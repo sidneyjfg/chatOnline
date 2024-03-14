@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.chatid.apps.ChatidConfig',
+    'apps.chatid.apps.ChatidConfig', #adicionado esta linha para ver as configurações do ChatidConfig na pasta    apps/chatid/apps.ChatidConfig
 ]
 
 MIDDLEWARE = [
@@ -56,8 +56,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-        BASE_DIR / 'templates',
-        BASE_DIR / 'templates/chat'
+        BASE_DIR / 'templates', #necessário informar diretório dos templates (html's)
+        BASE_DIR / 'templates/chat'#BASE_DIR diretório base no caso chatonline
 
         ],
         'APP_DIRS': True,
